@@ -3,6 +3,7 @@ package com.github.springboot.test1.service;
 import com.github.springboot.test1.dao.UserMapperTest1;
 import com.github.springboot.test2.dao.UserMapperTest2;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,6 +24,15 @@ public class UserServiceTest1 {
         userMapperTest1.insert(name, age);
         userMapperTest2.insert(name, age);
         int i = 1 / 0;
+        return "success";
+    }
+    @Async    //类似开启多线程，达到异步效果
+    public String sendSms() {
+        System.out.println("================3===============");
+        for (int i = 1; i <=3 ; i++) {
+            System.out.println("i: " + i);
+        }
+        System.out.println("================4===============");
         return "success";
     }
 }

@@ -36,7 +36,6 @@ public class UserController {
 
     @RequestMapping("/findByNameTest1")
     public User findByNameTest1(String name) {
-        logger.info("=================" + name);
         return userMapperTest1.findByName(name);
     }
 
